@@ -30,11 +30,11 @@ pipeline {
     }
   }
   environment {
-        GIT_PUSH_REPORT     = credentials('k8s')
+        GIT_PUSH_REPORT = credentials('k8s')
         
     }
   stages {
-    stage('read properties'){
+    stage('READ PROPERTIES'){
       steps{
         script{
           def props = readProperties file: './my.properties', text: 'other=Override'
@@ -53,7 +53,7 @@ pipeline {
                
                     def props = readProperties file: './my.properties', text: 'other=Override'
                     def test = sh script : " echo ${props.website} "
-                    def exitCode = sh script: """ zap-baseline-custom.py -r 10testreport.html -g gen.conf -d -m 5 -t ${props.website} --auth_auto --auth_loginurl "https://authenticationtest.com/simpleFormAuth/" --auth_username simpleForm@authenticationtest.com  --auth_password ${props.auth_password} --auth_usernamefield simpleForm@authenticationtest.com  --auth_passwordfield ${props.auth_password} --auth_submitfield submit """, returnStatus: true
+                    def exitCode = sh script: """ zap-baseline-custom.py -r 10testreport.html -g gen.conf -d -m 5 -t ${props.website} --auth_auto --auth_loginurl ${props.auth_loginurl} --auth_username ${props.auth_username}  --auth_password ${props.auth_password} --auth_usernamefield ${props.auth_username}  --auth_passwordfield ${props.auth_password} --auth_submitfield ${props.auth_submitfield} """, returnStatus: true
                     
                     if (exitCode == 2) {
                         sh 'echo "At least one WARN and no FAILs" '
