@@ -1,4 +1,4 @@
-def props = readProperties defaults: var, file: 'dir/my.properties', text: 'other=Override'
+def props = readProperties file: 'dir/my.properties', text: 'other=Override'
 pipeline {
   agent {
     kubernetes {
