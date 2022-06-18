@@ -47,7 +47,7 @@ pipeline {
                 
              script {
                
-                    
+                    def props = readProperties file: './my.properties', text: 'other=Override'
                     def test = sh script : " echo ${props.website} "
                     def exitCode = sh script: 'zap-baseline-custom.py -r 10testreport.html -g gen.conf -d -m 5 -t "${props.website}" --auth_auto --auth_loginurl "https://authenticationtest.com/simpleFormAuth/" --auth_username simpleForm@authenticationtest.com  --auth_password pa$$w0rd --auth_usernamefield simpleForm@authenticationtest.com  --auth_passwordfield pa$$w0rd --auth_submitfield submit ', returnStatus: true
                     
