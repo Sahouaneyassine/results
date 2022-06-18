@@ -80,7 +80,7 @@ pipeline {
                               git add .
                               git commit -m "second commit"
                               # git branch -M main
-                              git remote add origin https://github.com/Sahouaneyassine/results.git
+                              git remote add origin1 https://github.com/Sahouaneyassine/results.git
                               git push -f --repo=https://Sahouaneyassine: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@github.com/Sahouaneyassine/results.git --set-upstream https://Sahouaneyassine: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@github.com/Sahouaneyassine/results.git main  
 '''
                 
