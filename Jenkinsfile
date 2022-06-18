@@ -29,6 +29,10 @@ pipeline {
         '''
     }
   }
+  environment {
+        GIT_PUSH_REPORT     = credentials('k8s')
+        
+    }
   stages {
     stage('read properties'){
       steps{
@@ -94,7 +98,7 @@ pipeline {
                               git checkout -b main
                               git branch -M main
                               git remote add origin1 https://github.com/Sahouaneyassine/results.git
-                              git push -f --repo=https://Sahouaneyassine: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@github.com/Sahouaneyassine/results.git --set-upstream https://Sahouaneyassine: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@github.com/Sahouaneyassine/results.git main  
+                              git push -f --repo=https://Sahouaneyassine:$GIT_PUSH_REPORT@github.com/Sahouaneyassine/results.git --set-upstream https://Sahouaneyassine:$GIT_PUSH_REPORT@github.com/Sahouaneyassine/results.git main  
 '''
                 
                 
