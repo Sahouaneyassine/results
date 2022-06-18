@@ -1,3 +1,4 @@
+def props = readProperties defaults: var, file: 'dir/my.properties', text: 'other=Override'
 pipeline {
   agent {
     kubernetes {
@@ -37,7 +38,7 @@ pipeline {
             container('owaspppp') {
                 
              script {
-                    def exitCode = sh script: 'zap-baseline-custom.py -r 10testreport.html -g gen.conf -d -m 5 -t https://authenticationtest.com --auth_auto --auth_loginurl "https://authenticationtest.com/simpleFormAuth/" --auth_username simpleForm@authenticationtest.com  --auth_password pa$$w0rd --auth_usernamefield simpleForm@authenticationtest.com  --auth_passwordfield pa$$w0rd --auth_submitfield submit ', returnStatus: true
+                    def exitCode = sh script: 'zap-baseline-custom.py -r 10testreport.html -g gen.conf -d -m 5 -t "${website}" --auth_auto --auth_loginurl "https://authenticationtest.com/simpleFormAuth/" --auth_username simpleForm@authenticationtest.com  --auth_password pa$$w0rd --auth_usernamefield simpleForm@authenticationtest.com  --auth_passwordfield pa$$w0rd --auth_submitfield submit ', returnStatus: true
                     
                     if (exitCode == 2) {
                         sh 'echo "At least one WARN and no FAILs" '
