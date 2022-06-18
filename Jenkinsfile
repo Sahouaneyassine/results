@@ -1,4 +1,3 @@
-def props = readProperties file: 'my.properties', text: 'other=Override'
 pipeline {
   agent {
     kubernetes {
@@ -32,6 +31,9 @@ pipeline {
   }
   stages {
         stage('Run SCAN SCRIPT OWASP') {
+          
+           def props = readProperties file: './my.properties', text: 'other=Override'
+
             steps {
        
         
