@@ -45,6 +45,7 @@ pipeline {
           
 
             steps {
+                 echo "${env.DB_URL}"
        
         
             container('owaspppp') {
