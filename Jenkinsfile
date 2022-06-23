@@ -45,7 +45,7 @@ pipeline {
           
 
             steps {
-                 echo "${env.DB_URL}"
+                 
        
         
             container('owaspppp') {
@@ -53,7 +53,7 @@ pipeline {
              script {
                
                     def props = readProperties file: './my.properties', text: 'other=Override'
-                    def test = sh script : " echo ${props.auth_loginur} "
+                    def test = sh script : " echo ${props.auth_loginurl} "
                def exitCode = sh script: """ zap-baseline-custom.py -r ${props.name_report} -g gen.conf -d -m 5 \\ 
                                              -t ${props.website}  \\
                                              --auth_auto  \\
