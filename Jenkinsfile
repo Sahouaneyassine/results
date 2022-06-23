@@ -52,7 +52,7 @@ pipeline {
              script {
                
                     def props = readProperties file: './my.properties', text: 'other=Override'
-                    def test = sh script : " echo ${props.website} "
+                    def test = sh script : " echo ${env.DB_URL} "
                def exitCode = sh script: """ zap-baseline-custom.py -r ${props.name_report} -g gen.conf -d -m 5 \\ 
                                              -t ${props.website}  \\
                                              --auth_auto  \\
