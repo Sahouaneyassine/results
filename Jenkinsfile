@@ -14,7 +14,7 @@ pipeline {
           podRetention: "never"
           containers:
           - name: owaspppp
-            image: yasssahouane/owasp_weekly:latest
+            image: yasssahouane/owasp_test:latest
             workspaceVolume: hostPathWorkspaceVolume(hostPath:"/home/jenkins/agent/remoting/test")
             command:
             - sleep
