@@ -54,7 +54,7 @@ pipeline {
                
                     def props = readProperties file: './my.properties', text: 'other=Override'
                     def test = sh script : " echo ${props.auth_loginurl} "
-               def exitCode = sh script: """ zap-baseline-custom.py -r ${props.name_report} -g gen.conf -d -m 5 -t ${props.website} --auth_auto  --auth_loginurl ${props.auth_loginurl} --auth_username ${props.auth_username}   --auth_password ${props.auth_password}  --auth_usernamefield ${props.auth_username}  --auth_passwordfield ${props.auth_password}  --auth_submitfield ${props.auth_submitfield}  """, returnStatus: true
+               def exitCode = sh script: """ zap-baseline-custom.py -r ${props.name_report} -g gen.conf -d -m 5 -t ${props.website} --auth_auto  --auth_loginurl ${props.auth_loginurl} --auth_username ${props.auth_username}   --auth_password ${props.auth_password}  --auth_usernamefield ${props.auth_username}  --auth_passwordfield ${props.auth_password} --id_field_username ${props.id_field_username} --id_field_password ${props.id_field_password} --auth_submitfield ${props.auth_submitfield}  """, returnStatus: true
                     
                     if (exitCode == 2) {
                         sh 'echo "At least one WARN and no FAILs" '
