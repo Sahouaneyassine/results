@@ -54,7 +54,7 @@ pipeline {
                
                     def props = readProperties file: './my.properties', text: 'other=Override'
                     def test = sh script : " echo ${props.auth_loginurl} "
-                    def exitCode = sh script: """ zap-baseline-custom.py -r ${props.name_report} -g gen.conf -d -m 5 -t ${props.website} --auth_auto  --auth_loginurl ${props.auth_loginurl} --auth_username ${props.auth_username}   --auth_password ${props.auth_password}    --key_field_username ${props.key_field_username} --key_field_password ${props.key_field_password} --key_field_submit ${props.key_field_submit} --key_field_first_submit ${props.key_field_first_submit} --id_field_username ${props.id_field_username} --id_field_password ${props.id_field_password} --id_field_submit ${props.id_field_submit} --id_field_first_submit ${props.id_field_first_submit}  """, returnStatus: true
+                    def exitCode = sh script: """ zap-baseline-custom.py -r ${props.name_report} -g gen.conf -d -m 5 -t ${props.website} --auth_auto  --auth_loginurl ${props.auth_loginurl} --auth_username ${props.auth_username}   --auth_password ${props.auth_password}    --key_field_username ${props.key_field_username} --key_field_password ${props.key_field_password} --key_field_submit ${props.key_field_submit} --key_field_first_submit ${props.key_field_first_submit} --submit_button_input ${props.submit_button_input} --id_field_username ${props.id_field_username} --id_field_password ${props.id_field_password} --id_field_submit ${props.id_field_submit} --id_field_first_submit ${props.id_field_first_submit}  """, returnStatus: true
                     
                     if (exitCode == 2) {
                         sh 'echo "At least one WARN and no FAILs" '
