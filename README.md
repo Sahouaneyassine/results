@@ -10,8 +10,19 @@ This file contains all variables that we will need ton run our SCAN Against a ta
 auth.loginurl             The URL to the login page. Required.
 auth.username             A valid username. Required.
 auth.password             A valid password. Required.
-auth.otpsecret            The OTP secret.
-auth.bearer_token         A Bearer token to use in the authorization header for each request.
+key_field_username        By what u want to get the field ( value , id , name ) <input name,value,id= />
+key_field_password        By what u want to get the field ( value , id , name ) <input name,value,id= />
+key_field_first_submit    By what u want to get the field ( value , id , name ) <input name,value,id= />
+key_field_submit          By what u want to get the field ( value , id , name ) <input name,value,id= />
+
+submit_button_input       The submit is ( button , input ) <button/> ? <input/>
+
+id_field_username
+id_field_password
+id_field_first_submit
+id_field_submit
+
+
 auth.username_field       The HTML name or id attribute of the username field.
 auth.password_field       The HTML name or id attribute of the password field.
 auth.submit_field         The HTML name or id attribute of the submit field.
