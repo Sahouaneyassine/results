@@ -17,10 +17,10 @@ key_field_submit          By what u want to get the field ( value , id , name ) 
 
 submit_button_input       The submit is ( button , input ) <button/> ? <input/>
 
-id_field_username         The value of the key <input key=value>
-id_field_password         The value of the key <input key=value>
-id_field_first_submit     The value of the key <input key=value>
-id_field_submit           The value of the key <input key=value>
+value_field_username         The value of the key <input key=value>
+value_field_password         The value of the key <input key=value>
+value_field_first_submit     The value of the key <input key=value>
+value_field_submit           The value of the key <input key=value>
 name_report:              'myReport.html'
 
 
